@@ -1,0 +1,121 @@
+/* styles.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+}
+
+/* Title Styling */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInTitle 1s ease-in-out;
+}
+
+@keyframes fadeInTitle {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Game Board Styling */
+.game-container {
+  position: relative;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cell:hover {
+  background-color: #f1f1f1;
+}
+
+/* Popup Styling */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  width: 80%;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: popupFadeIn 0.5s ease-in-out;
+}
+
+.popup .message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff7e5f;
+  margin-bottom: 15px;
+}
+
+.popup button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.popup button:hover {
+  box-shadow: 0 0 10px rgba(255, 126, 95, 0.7), 0 0 20px rgba(254, 180, 123, 0.7);
+  transform: scale(1.05);
+}
+
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Winning Line Styling */
+#winning-line {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 10px;
+  height: 300px;
+  transform-origin: top left;
+  display: none;
+}
